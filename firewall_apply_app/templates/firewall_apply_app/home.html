@@ -1,0 +1,38 @@
+{% extends "firewall_apply_app/layout.html" %}
+{% block title %}
+Home
+{% endblock %}
+{% block content %}
+<body class="bg-light">
+    <div class="container">
+      <main>
+        <div class="py-5 text-center">
+          <h2>Firewall Apply System</h2>
+          <p class="lead">Below is an firewall applyed form.</p>
+            {% if apply_list %}
+                <table>
+                    <thead>
+                        <tr>
+                            <th>apply name</th>
+                            <th>open direction</th>
+                            <th>apply reason</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for apply in apply_list %}
+                            <tr>
+                                <td>{{ apply.name }}</td>
+                                <td>{{ apply.open_direction }}</td>
+                                <td>{{ apply.reason }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% else %}
+                <p>No apply form.</p>
+            {% endif %}
+        </div>
+      </main>
+    </div>
+</body>
+{% endblock %}

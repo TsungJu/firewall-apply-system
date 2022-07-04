@@ -1,0 +1,1 @@
+web: gunicorn firewall_apply_app:wsgi --preload

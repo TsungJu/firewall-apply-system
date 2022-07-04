@@ -1,0 +1,174 @@
+{% extends "firewall_apply_app/layout.html" %}
+{% block title %}
+Firewall Apply System
+{% endblock %}
+{% block content %}
+<body class="bg-light">
+    
+    <div class="container">
+      <main>
+        <div class="py-5 text-center">
+          {% load static %}
+          <img class="d-block mx-auto mb-4" src="{% static 'firewall_apply_app/brand/firewall-apply.svg' %}" alt="" width="72" height="57">
+          <h2>Firewall Apply Form</h2>
+          <p class="lead">Below is an firewall apply form built entirely with Bootstrap’s form controls. Each required form group has a validation state that can be triggered by attempting to submit the form without completing it.</p>
+        </div>
+
+        <div class="row g-5">
+          
+          <div class="col-md-8 col-lg-9">
+            <h4 class="mb-3">Firewall Apply Information</h4>
+            <form class="needs-validation" method="post" action="/applying/" novalidate>
+              <div class="row g-3">
+                <div class="col-sm-6">
+                  <label for="name" class="form-label">Name</label>
+                  <input type="text" class="form-control" id="name" name="name" placeholder="" value="" required>
+                  <div class="invalid-feedback">
+                    Valid name is required.
+                  </div>
+                </div>
+
+                <div class="col-sm-6">
+                  <label for="phone_number" class="form-label">Phone number</label>
+                  <input type="text" class="form-control" id="phone_number" name="phone_number" placeholder="" value="" required>
+                  <div class="invalid-feedback">
+                    Valid phone number is required.
+                  </div>
+                </div>
+
+                <div class="col-12">
+                  <label for="email" class="form-label">Email</label>
+                  <input type="email" class="form-control" id="email" name="email" placeholder="you@example.com">
+                  <div class="invalid-feedback">
+                    Please enter a valid email address for shipping updates.
+                  </div>
+                </div>
+
+                <div class="my-3">
+                  <div class="form-check">
+                    <input id="datacenter" name="device_place_location" type="radio" class="form-check-input" checked required>
+                    <label class="form-check-label" for="datacenter">Datacenter</label>
+                  </div>
+                  <div class="form-check">
+                    <input id="office" name="device_place_location" type="radio" class="form-check-input" required>
+                    <label class="form-check-label" for="office">Office</label>
+                  </div>
+                  <div class="form-check">
+                    <input id="others" name="device_place_location" type="radio" class="form-check-input" required>
+                    <label class="form-check-label" for="others">Others</label>
+                  </div>
+                </div>
+
+                <div class="col-md-5">
+                  <label for="source_ip_address" class="form-label">Source IP Address</label>
+                  <input type="text" class="form-control" id="source_ip_address" name="source_ip_address" placeholder="123.92.134.113" required>
+                  <div class="invalid-feedback">
+                    Please enter source ip address.
+                  </div>
+                </div>
+
+                <div class="col-md-5">
+                  <label for="destination_ip_address" class="form-label">Destination IP Address</label>
+                  <input type="text" class="form-control" id="destination_ip_address"  name="destination_ip_address" placeholder="123.92.135.113" required>
+                </div>
+
+                <div class="col-md-3">
+                  <label for="open_direction" class="form-label">Open Direction</label>
+                  <select class="form-select" id="open_direction" name="open_direction" required>
+                    <option value="">Choose...</option>
+                    <option value="1">VPN -> Intranet</option>
+                    <option value="2">Intranet -> Internet</option>
+                  </select>
+                  <div class="invalid-feedback">
+                    Please select a open direction.
+                  </div>
+                </div>
+
+                <div class="col-md-3">
+                  <label for="protocols" class="form-label">Protocols</label>
+                  <select class="form-select" id="protocols" name="protocols" required>
+                    <option value="">Choose...</option>
+                    <option>TCP</option>
+                    <option>UDP</option>
+                  </select>
+                  <div class="invalid-feedback">
+                    Please select a protocol.
+                  </div>
+                </div>
+
+                <div class="col-md-5">
+                  <label for="ports" class="form-label">Ports</label>
+                  <input type="text" class="form-control" id="ports" name="ports" placeholder="80、443" required>
+                  <div class="invalid-feedback">
+                    Please enter ports.
+                  </div>
+                </div>
+
+                <div class="col-12">
+                  <label for="reason" class="form-label">Reason</label>
+                  <input type="text" class="form-control" id="reason" name="reason" placeholder="" required>
+                  <div class="invalid-feedback">
+                    Please provide a reason.
+                  </div>
+                </div>
+
+                <div class="col-md-3">
+                  <label for="apply_during_begin" class="form-label">Apply During Begin</label>
+                  <input type="date" class="form-control" id="apply_during_begin" name="apply_during_begin" placeholder="" required>
+                  <div class="invalid-feedback">
+                    Please select a begin datetime.
+                  </div>
+                </div>
+
+                <div class="col-md-3">
+                  <label for="apply_during_end" class="form-label">Apply During End</label>
+                  <input type="date" class="form-control" id="apply_during_end" name="apply_during_end" placeholder="" required>
+                  <div class="invalid-feedback">
+                    Please select a end datetime.
+                  </div>
+                </div>
+              </div>
+
+              <hr class="my-4">
+
+              <h4 class="mb-3">防火牆申請放行範圍不得涉及色情、暴力、侵犯智慧財產權、非法影音檔(電影、MP3)下載等情形，如有違反，申請人需自負相關之責任。</h4>
+
+              <div class="my-3">
+                <div class="form-check">
+                  <input id="agree" name="declare" type="radio" class="form-check-input" checked required>
+                  <label class="form-check-label" for="agree">Agree</label>
+                </div>
+                <div class="form-check">
+                  <input id="disagree" name="declare" type="radio" class="form-check-input" required>
+                  <label class="form-check-label" for="disagree">Disagree</label>
+                </div>
+              </div>
+
+              <hr class="my-4">
+
+              {% csrf_token %}
+              <button class="w-100 btn btn-primary btn-lg" type="submit">Submit</button>
+            </form>
+          </div>
+        </div>
+      </main>
+    </div>
+      <!-- <script src="../../static/firewall_apply_app/js/bootstrap.bundle.min.js"></script> -->
+      <!-- <script src="../../static/firewall_apply_app/js/form-validation.js"></script> -->
+      <script src="{% static 'firewall_apply_app/js/bootstrap.bundle.min.js' %}"></script>
+      <script src="{% static 'firewall_apply_app/js/form-validation.js' %}"></script>
+      <script>
+        //var office = document.getElementById('office');
+            
+            // When the user clicks anywhere outside of the modal, close it
+            //window.onclick = function(event) {
+            //    if (event.target == modal) {
+            //        modal.style.display = "none";
+            //    }
+            //}
+        const radioOfficeButtons = document.querySelector('#office');
+        radioOfficeButtons.addEventListener('click', () => {
+          console.log('hello radio')
+        });
+      </script>
+{% endblock %}

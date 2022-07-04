@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.88.1">
+    <title>{% block title %}{% endblock %}</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/checkout/">
+
+    <!-- Bootstrap core CSS -->
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'firewall_apply_app/css/bootstrap.min.css' %}">
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+
+    <!-- Custom styles for this template
+    {% load static %} -->
+    <link href="{% static 'firewall_apply_app/css/form-validation.css' %}" rel="stylesheet">
+  </head>
+  <body class="bg-light">
+    <div class="navbar navbar-expand-sm bg-dark navbar-dark">
+      <div class="container-fluid">
+          <ul class="navbar-nav me-auto"">
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'home' %}">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'apply' %}">Apply</a>
+              </li>
+          </ul>
+      </div>
+    </div>
+    {% block content %}
+    {% endblock %}
+  </body>
+  <footer class="my-5 text-muted text-center text-small">
+    <hr class="my-4">
+    <p>&copy; 2022–2022</p>
+    <ul class="list-inline">
+      <li class="list-inline-item"><a href="#">Privacy</a></li>
+      <li class="list-inline-item"><a href="#">Terms</a></li>
+      <li class="list-inline-item"><a href="#">Support</a></li>
+    </ul>
+  </footer>
+</html>
