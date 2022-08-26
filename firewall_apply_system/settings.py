@@ -26,7 +26,7 @@ SECRET_KEY = os.environ['SECRET_KEY']
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['firewall-apply.azurewebsites.net','firewall-apply-system.herokuapp.com','localhost']
+ALLOWED_HOSTS = ['firewall-apply-system.azurewebsites.net','firewall-apply-system.herokuapp.com','localhost']
 
 
 # Application definition
