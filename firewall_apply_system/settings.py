@@ -27,7 +27,7 @@ SECRET_KEY = os.environ['SECRET_KEY']
 DEBUG = True
 
 ALLOWED_HOSTS = ['firewall-apply-system.azurewebsites.net','firewall-apply-system.herokuapp.com','localhost']
-
+CSRF_TRUSTED_ORIGINS = ['firewall-apply-system.azurewebsites.net']
 
 # Application definition
 
