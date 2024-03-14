@@ -11,8 +11,8 @@
 
 1. home頁顯示目前所有正在處理中的防火牆開放申請：
 
-![Home Page](pictures/home_page.JPG)
+![Home Page](home_page.JPG)
 
 2. 填寫相關防火牆開放，並送出申請：
 
-![Apply Page](pictures/apply_page.JPG)
+![Apply Page](apply_page.JPG)
