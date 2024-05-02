@@ -5,11 +5,27 @@ from firewall_apply_app.models import FirewallApply
 import datetime
 from django.views.generic import ListView
 
-#def home(request):
-#    return render(
-#        request,
-#        'firewall_apply_app/home.html'
-#    )
+import tweepy
+
+consumer_key = '6mPcUdxIP75ArYmI8TGTS7lpA'
+consumer_secret = 'jibTKlgvXNolKPC49WI7vIDHY2MMgA3FHSTVpAfiaUuAVlzVpd'
+access_token = '1785183665242443776-1cGdHjQx4vaEJhKaWy67QMWYTVzMa2'
+access_token_secret = 'RV3lCEoErZsGA6YVPQYOYm3WN7e7V1bUUZgIgsUun6fv1'
+
+def home(request):
+
+    client = tweepy.Client(
+        consumer_key,
+        consumer_secret,
+        access_token,
+        access_token_secret
+    )
+
+    print(client.get_home_timeline().text)
+    return render(
+        request,
+        'firewall_apply_app/home.html'
+    )
 
 class HomeListView(ListView):
     model = FirewallApply
