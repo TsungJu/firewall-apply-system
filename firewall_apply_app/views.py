@@ -5,6 +5,8 @@ from firewall_apply_app.models import FirewallApply
 import datetime
 from django.views.generic import ListView
 
+import tweepy
+
 #def home(request):
 #    return render(
 #        request,
@@ -19,6 +21,20 @@ class HomeListView(ListView):
         return context
 
 def apply(request):
+
+    consumer_key = '6mPcUdxIP75ArYmI8TGTS7lpA'
+    consumer_secret = 'jibTKlgvXNolKPC49WI7vIDHY2MMgA3FHSTVpAfiaUuAVlzVpd'
+    access_token = '1785183665242443776-1cGdHjQx4vaEJhKaWy67QMWYTVzMa2'
+    access_token_secret = 'RV3lCEoErZsGA6YVPQYOYm3WN7e7V1bUUZgIgsUun6fv1'
+
+    auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
+    auth.set_access_token(access_token, access_token_secret)
+
+    api = tweepy.API(auth)
+
+    public_tweets = api.home_timeline()
+    for tweet in public_tweets:
+        print(tweet.text)
     return render(
         request,
         'firewall_apply_app/apply.html'
